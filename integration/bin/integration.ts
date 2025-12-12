@@ -17,4 +17,4 @@ new APIStack(app, "APIStack", {
   deleteTask: lambdas.deleteTask,
 });
 
-// new FrontendStack(app, "FrontendStack");
+new FrontendStack(app, "FrontendStack");
