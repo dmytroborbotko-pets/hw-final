@@ -27,8 +27,19 @@ export class APIStack extends cdk.Stack {
 
     tasks.addMethod("POST", new apigw.LambdaIntegration(props.createTask));
     tasks.addMethod("GET", new apigw.LambdaIntegration(props.readTask));
-    tasks.addMethod("PUT", new apigw.LambdaIntegration(props.updateTask));
-    tasks.addMethod("DELETE", new apigw.LambdaIntegration(props.deleteTask));
+
+    // Add path parameters for update and delete operations
+    const taskById = tasks.addResource("{id}");
+    const taskByIdAndCreatedAt = taskById.addResource("{createdAt}");
+
+    taskByIdAndCreatedAt.addMethod(
+      "PUT",
+      new apigw.LambdaIntegration(props.updateTask)
+    );
+    taskByIdAndCreatedAt.addMethod(
+      "DELETE",
+      new apigw.LambdaIntegration(props.deleteTask)
+    );
 
     new cdk.CfnOutput(this, "ApiUrl", {
       value: this.api.url,

@@ -1,0 +1,165 @@
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.task-item {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.task-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.task-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-content h3 {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1.25rem;
+  word-wrap: break-word;
+}
+
+.task-content p {
+  margin: 0 0 0.75rem 0;
+  color: #666;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.task-date {
+  color: #999;
+  font-size: 0.875rem;
+}
+
+.task-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-edit {
+  background: #4CAF50;
+  color: white;
+}
+
+.btn-edit:hover {
+  background: #45a049;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
+}
+
+.btn-delete {
+  background: #f44336;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #da190b;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(244, 67, 54, 0.3);
+}
+
+.loading,
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  font-size: 1.125rem;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .task-item {
+    flex-direction: column;
+    padding: 1.25rem;
+  }
+
+  .task-content h3 {
+    font-size: 1.125rem;
+  }
+
+  .task-actions {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .task-actions .btn {
+    flex: 1;
+  }
+
+  .loading,
+  .empty-state {
+    padding: 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .task-list {
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .task-item {
+    padding: 1rem;
+  }
+
+  .task-content h3 {
+    font-size: 1rem;
+    margin-bottom: 0.375rem;
+  }
+
+  .task-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .task-date {
+    font-size: 0.8rem;
+  }
+
+  .task-actions {
+    gap: 0.5rem;
+  }
+
+  .task-actions .btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .loading,
+  .empty-state {
+    padding: 1.5rem;
+    font-size: 0.95rem;
+  }
+}
